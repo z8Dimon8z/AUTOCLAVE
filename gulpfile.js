@@ -1,120 +1,69 @@
-const { src, dest, watch, parallel, series }  = require('gulp');
+// Импорт основного модуля
+import gulp from "gulp";
+// Импорт общих плагинов
+import { plugins } from "./config/gulp-plugins.js";
+// Импорт путей
+import { path } from "./config/gulp-settings.js";
 
-const scss = require('gulp-sass')(require('sass')); // работа c sass
-const concat        = require('gulp-concat'); // Обяденение файлов
-const browserSync   = require('browser-sync').create(); // сервер
-const uglify        = require('gulp-uglify-es').default; // сжатие js
-const autoprefixer  = require('gulp-autoprefixer'); // префиксы в css
-const imagemin      = require('gulp-imagemin'); // сжатие картинок
-const del           = require('del'); // удаление из файлов из папки dist перед билдом (финалом)
-const svgSprite = require('gulp-svg-sprite'); // сщздание svg спрайта
-const cheerio = require('gulp-cheerio'); // обработка svg спрайта
-const replace = require('gulp-replace'); // работа с ошибками svg спрайта
-
-function svgSprites() {
-  return src('app/images/icons/*.svg') // выбираем в папке с иконками все файлы с расширением svg
-  .pipe(cheerio({
-        run: ($) => {
-            $("[fill]").removeAttr("fill"); // очищаем цвет у иконок по умолчанию, чтобы можно было задать свой
-            $("[stroke]").removeAttr("stroke");  // очищаем, если есть лишние атрибуты строк
-            $("[style]").removeAttr("style");  // убираем внутренние стили для иконок
-        },
-        parserOptions: { xmlMode: true },
-      })
-  )
-	.pipe(replace('&gt;','>')) // боремся с заменой символа 
-	.pipe(
-      svgSprite({
-	        mode: {
-	          stack: {
-	            sprite: '../sprite.svg', // указываем имя файла спрайта и путь
-	          },
-	        },
-	      })
-	    )
-	.pipe(dest('app/images')); // указываем, в какую папку поместить готовый файл спрайта
+// Передаем значения в глобальную переменную
+global.app = {
+	isBuild: process.argv.includes('--build'),
+	isDev: !process.argv.includes('--build'),
+	isWebP: !process.argv.includes('--nowebp'),
+	isFontsReW: process.argv.includes('--rewrite'),
+	gulp: gulp,
+	path: path,
+	plugins: plugins
 }
 
-function browsersync() { // автоматическая обновление страницы при изменении  в проекте
-  browserSync.init({
-    server : {
-      baseDir: 'app/'
-    }
-  });
-}
+// Импорт задач
+import { reset } from "./config/gulp-tasks/reset.js";
+import { html } from "./config/gulp-tasks/html.js";
+import { css } from "./config/gulp-tasks/css.js";
+import { js } from "./config/gulp-tasks/js.js";
+import { jsDev } from "./config/gulp-tasks/js-dev.js";
+import { images } from "./config/gulp-tasks/images.js";
+import { ftp } from "./config/gulp-tasks/ftp.js";
+import { zip } from "./config/gulp-tasks/zip.js";
+import { sprite } from "./config/gulp-tasks/sprite.js";
+import { gitignore } from "./config/gulp-tasks/gitignore.js";
+import { otfToTtf, ttfToWoff, fonstStyle } from "./config/gulp-tasks/fonts.js";
 
-function cleanDist() { // удаление из файлов из папки dist перед билдом (финалом)
-  return del('dist')
-}
+// Последовательная обработака шрифтов
+const fonts = gulp.series(reset, otfToTtf, ttfToWoff, fonstStyle);
+// Основные задачи будем выполнять параллельно после обработки шрифтов
+const devTasks = gulp.parallel(fonts, gitignore);
+// Основные задачи будем выполнять параллельно после обработки шрифтов
+const buildTasks = gulp.series(fonts, jsDev, js, gulp.parallel(html, css, images, gitignore));
 
-function images() { // сжатие картинок
-  return src('app/images/**/*.*')
-    .pipe(imagemin(
-      [
-        imagemin.gifsicle({ interlaced: true }),
-        imagemin.mozjpeg({ quality: 75, progressive: true }),
-        imagemin.optipng({ optimizationLevel: 5 }),
-        imagemin.svgo({
-          plugins: [
-            { removeViewBox: true },
-            { cleanupIDs: false }
-          ]
-        })
-      ]
-    ))
-    .pipe(dest('dist/images'))
-}
+// Экспорт задач
+export { html }
+export { css }
+export { js }
+export { jsDev }
+export { images }
+export { fonts }
+export { sprite }
+export { ftp }
+export { zip }
 
-function scripts() { // сжатие JS файлов и  подключение JS файлов
-  return src([
-    'node_modules/jquery/dist/jquery.js', // подключен jquery (можно убрать если jquery не нужен)
-    'app/js/main.js' // подключен main.js
-  ])
-    .pipe(concat('main.min.js'))
-    .pipe(uglify())
-    .pipe(dest('app/js'))
-    .pipe(browserSync.stream())
-}
+// Построение сценариев выполнения задач
+const development = gulp.series(devTasks);
+const build = gulp.series(buildTasks);
+const deployFTP = gulp.series(buildTasks, ftp);
+const deployZIP = gulp.series(buildTasks, zip);
 
+// Экспорт сценариев
+export { development }
+export { build }
+export { deployFTP }
+export { deployZIP }
 
-function styles() { // функция конвертации sass
-  return src('app/scss/style.scss')
-      .pipe(scss({outputStyle: 'compressed'})) // сжатие файла css
-      .pipe(concat('style.min.css')) // обяденение файлов
-      .pipe(autoprefixer({ // для совместимости со старыми браузерами
-        overrideBrowserslist: ['last 10 version'], // десять последних версий браузера
-        grid: true // использование гридов
-      }))
-      .pipe(dest('app/css'))
-      .pipe(browserSync.stream())
-}
-
-function build() { // финальная сборка проекта
-  return src([
-    'app/css/style.min.css',
-    'app/fonts/**/*',
-    'app/js/main.min.js',
-    'app/**/*.html'
-  ], {base: 'app'})
-    .pipe(dest('dist'))
-}
-
-function watching() { // Слежка за изменниями в проекте
-  watch(['app/scss/**/*.scss'], styles);
-  watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
-  watch(['app/*.html']).on('change', browserSync.reload);
-}
-
-exports.styles = styles;
-exports.watching = watching;
-exports.browsersync = browsersync;
-exports.scripts = scripts;
-exports.images = images;
-exports.cleanDist = cleanDist;
-exports.svgSprites = svgSprites;
+// Выполнение сценария по умолчанию
+gulp.task('default', development);
 
 
-exports.build = series(cleanDist, images, build); // последовательность выполнения команд перед bildom (финалом)
-exports.default = parallel(svgSprites, styles ,scripts ,browsersync, watching); // паралельное выполнение команд и пакетов gulpa
+
+
 
 
