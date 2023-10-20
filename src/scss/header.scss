@@ -1,54 +1,348 @@
 //====================================================================================================
+.header {
+
+  /* .header__container */
+  height: 100px;
+  @include adaptiveValue("height", 100, 60);
+  background-color: $acentColor;
+  @include adaptiveValue("padding-top", 22, 11);
+  @include adaptiveValue(" padding-bottom", 22, 11);
+
+  &__container {}
+
+  /* .header__content */
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+  }
+
+  /* .header__logo */
+
+  &__logo {}
+
+  /* .header__logo-img */
+
+  &__logo-img {
+    @include adaptiveValue("width", 246, 164);
+    @include adaptiveValue("height", 52, 35);
+  }
+
+  /* .header__tabs */
+
+  &__tabs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* .header__tabs-btn */
+
+  &__tabs-btn {
+    border-radius: 30px;
+    background-color: #FFF;
+    padding: 7px 12px;
+    margin-right: 18px;
+    color: $acentColor;
+    font-size: 16px;
+    font-weight: 800;
+    line-height: normal;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    @media (max-width: em(856)) {
+      margin-right: 0;
+    }
+  }
+
+  &__tabs_one {
+    @media (max-width: em(856)) {
+      border-radius: 0 0 50px;
+      background-color: #D30000;
+      color: #fff;
+    }
+  }
+
+  &__tabs_two {
+    @media (max-width: em(856)) {
+      border-radius: 0px 0px 0px 50px;
+      background-color: #FFC09A;
+      color: #fff;
+    }
+  }
+
+  /* .header__menu */
+
+  &__menu {}
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  /* .menu__body */
+
+  &__body {
+    @media (max-width: em(1322)) {
+      position: fixed;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-align: center;
+      gap: 24px;
+      overflow: auto;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: -100%;
+      transition: left 0.3s ease 0s;
+      background-color: $acentColor;
+      @include adaptiveValue("padding-top", 108, 100);
+      padding-bottom: rem(30);
+      padding-right: rem(15);
+      padding-left: rem(15);
+      z-index: 5;
+
+      &::before {
+        content: "";
+        top: -100%;
+        position: fixed;
+        width: 100%;
+        left: 0;
+        transition: top 0.3s ease 0s;
+        background-color: transparent;
+        height: 100px;
+      }
+
+      .menu-open & {
+        left: 0;
+
+        &::before {
+          top: 0;
+        }
+      }
+    }
+  }
+
+  &__list-mobile {
+    color: #FFF;
+
+    @media (min-width:em(1322)) {
+      display: none;
+    }
+
+    @media (max-width: em(1322)) {
+      display: block;
+    }
+  }
+
+  &__item-mobile {
+    margin-bottom: 20px;
+  }
+
+  /* .menu__list */
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  /* .menu__item */
+
+  &__item {}
+
+  /* .menu__link */
+
+  &__link {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  /* .menu__social */
+
+  &__social {
+    display: flex;
+    gap: 15px;
+
+    @media (max-width: em(460)) {
+      display: none;
+    }
+  }
+
+  /* .menu__social-tel */
+
+  &__social-tel {
+    span {
+      color: #fff;
+      font-size: 16px;
+      font-weight: 800;
+      line-height: normal;
+
+      @media (max-width: em(1056)) {
+        display: none;
+      }
+    }
+  }
+
+  /* .menu__social-tel-icon */
+
+  &__social-tel-icon {
+    display: none;
+
+    @media (max-width: em(1056)) {
+      display: block;
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  /* .menu__social-telegram-mobile */
+
+  &__social-telegram-mobile {
+    display: none;
+
+    @media (max-width: em(856)) {
+      display: block;
+    }
+  }
+
+  /* .menu__social-telegram-mobile-img */
+
+  &__social-telegram-mobile-img {
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    width: 45px;
+    height: 45px;
+  }
+
+  /* .menu__social-viber-mobile */
+
+  &__social-viber-mobile {
+    display: none;
+
+    @media (max-width: em(856)) {
+      display: block;
+    }
+  }
+
+  /* .menu__social-viber-mobile-img */
+
+  &__social-viber-mobile-img {
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    width: 45px;
+    height: 45px;
+  }
+
+  /* .menu__buy */
+
+  &__buy {
+    padding: 7px 25px;
+    border-radius: 20px;
+    background-color: #D30000;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: normal;
+
+    @media (max-width: em(940)) {
+      padding: 0;
+    }
+
+    span {
+      @media (max-width: em(940)) {
+        display: none;
+        padding: 0;
+      }
+    }
+
+    @media (max-width: em(586)) {
+      display: none;
+    }
+  }
+
+  /* .menu__buy-icon */
+
+  &__buy-icon {
+    display: none;
+
+    @media (max-width: em(940)) {
+      display: block;
+      height: 45px;
+      width: 45px;
+    }
+  }
+
+  /* .menu__icon */
+
+  &__icon {}
+}
 
 //====================================================================================================
 
 //Burger
-/*
+
 .icon-menu {
-	display: none;
-	@media (max-width: $mobile) {
-		display: block;
-		position: relative;
-		width: rem(30);
-		height: rem(18);
-		cursor: pointer;
-		z-index: 5;
-		span,
-		&::before,
-		&::after {
-			content: "";
-			transition: all 0.3s ease 0s;
-			right: 0;
-			position: absolute;
-			width: 100%;
-			height: rem(2);
-			background-color: #000;
-		}
-		&::before {
-			top: 0;
-		}
-		&::after {
-			bottom: 0;
-		}
-		span {
-			top: calc(50% - rem(1));
-		}
-		.menu-open & {
-			span {
-				width: 0;
-			}
-			&::before,
-			&::after {
-			}
-			&::before {
-				top: calc(50% - rem(1));
-				transform: rotate(-45deg);
-			}
-			&::after {
-				bottom: calc(50% - rem(1));
-				transform: rotate(45deg);
-			}
-		}
-	}
+  display: none;
+
+  @media (max-width: em(1322)) {
+    display: block;
+    position: relative;
+    width: rem(30);
+    height: rem(18);
+    cursor: pointer;
+    z-index: 5;
+
+    span,
+    &::before,
+    &::after {
+      content: "";
+      transition: all 0.3s ease 0s;
+      right: 0;
+      position: absolute;
+      width: 100%;
+      height: rem(2);
+      background-color: #fff;
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+
+    span {
+      top: calc(50% - rem(1));
+    }
+
+    .menu-open & {
+      span {
+        width: 0;
+      }
+
+      &::before,
+      &::after {}
+
+      &::before {
+        top: calc(50% - rem(1));
+        transform: rotate(-45deg);
+      }
+
+      &::after {
+        bottom: calc(50% - rem(1));
+        transform: rotate(45deg);
+      }
+    }
+  }
 }
-*/

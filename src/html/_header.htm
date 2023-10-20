@@ -4,12 +4,16 @@
     <a class="header__logo" href="#">
       <img class="header__logo-img" src="@img/header/logo.png" alt="Логотип">
     </a>
-    <div class="header__tabs">
-      <button class="header__tabs-btn">Автоматический</button>
-      <button class="header__tabs-btn">Механический</button>
+    <div class="header__tabs" data-da=".header__mobile,856,last">
+      <button class="header__tabs-btn header__tabs_one" data-filter=".category-a">Автоматический</button>
+      <button class="header__tabs-btn header__tabs_two" data-filter=".category-b">Механический</button>
     </div>
     <div class="header__menu menu">
       <nav class="menu__body">
+        <ul class="menu__list-mobile">
+          <li class="menu__item-mobile"><a href="#" class="menu__link-mobile">Купить</a></li>
+          <li class="menu__item-mobile"><a href="#" class="menu__link-mobile">Видеобзоры</a></li>
+        </ul>
         <ul class="menu__list">
           <li class="menu__item"><a href="#" class="menu__link">Комплектация</a></li>
           <li class="menu__item"><a href="#" class="menu__link">Доставка и оплата</a></li>
