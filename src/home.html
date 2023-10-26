@@ -1,25 +1,70 @@
 <!DOCTYPE html>
 <html lang="ru">
-	@@include('html/_head.htm',{
-	"title":"Главная"
-	})
-	<body>
-		<div class="wrapper">
-			@@include('html/_header.htm',{})
-			<main class="page">
-        <div class="header__mobile"></div>
-        <section class="main">
-          <div class="main__container">
-            <div class="main-tab__wraper">
-              <div class="main-tab__content mix category-a">1</div>
-              <div class="main-tab__content mix category-b">2</div>
+@@include('html/_head.htm',{
+"title":"Главная"
+})
+
+<body>
+  <div class="wrapper">
+    @@include('html/_header.htm',{})
+    <main class="page">
+      <div class="header__mobile"></div>
+      <section class="main">
+        <div class="main__container">
+          <div class="main-tab__wraper">
+            <div class="main-tab__content mix category-a">1</div>
+            <div class="main-tab__content mix category-b">
+              <div class="main-tab__item main-content">
+                <div class="main-content__column">
+                  <p class="main-content__subtitle">Консервируем просто!</p>
+                  <h1 class="main-content__title">АВТОКЛАВ</h1>
+                  <p class="main-content__description">Механический <span>|</span> паровой</p>
+                  <ul class="main-content__list">
+                    <p class="main-content__item">Крышка Heavy-Block</p>
+                    <p class="main-content__item">Высокопрочная сталь</p>
+                    <p class="main-content__item">Вместительный - 21 банка</p>
+                    <p class="main-content__item">Безопасный клапан - холодный пар</p>
+                  </ul>
+                  <img class="main-content__canned-img" src="@img/main-block/canned-img.png"
+                    alt="Консервированные банки">
+                </div>
+                <div class="main-content__column">
+                  <img class="main-content__column-img" src="@img/main-block/avtoclav-main.png"
+                    alt="Автоклав механический">
+                </div>
+                <div class="main-content__column">
+                  <div class="main-content__block-link">
+                    <a class="main-content__block-link-video" href="#">
+                      <svg class="main-content__block-link-video-icon">
+                        <use xlink:href="img/icons/icons.svg#svg-video-icon"></use>
+                      </svg>
+                    </a>
+                    <a class="main-content__block-link-pdf" href="#">
+                      <svg class="main-content__block-link-pdf-icon">
+                        <use xlink:href="img/icons/icons.svg#svg-pdf-icon"></use>
+                      </svg>
+                    </a>
+                  </div>
+                  <div class="main-content__prices">
+                    <p class="main-content__old-price">24 250р</p>
+                    <p class="main-content__new-price">19 000р</p>
+                    <p class="main-content__share-text">АКЦИЯ!</p>
+                  </div>
+                  <div class="main-content__gift">
+                    <p class="main-content__gift-text">Подарок!</p>
+                    <img class="main-content__gift-img" src="@img/main-block/gift-img.png" alt="Картинка подарка при покупке">
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </section>
-			</main>
-			@@include('html/_footer.htm',{})
-		</div>
-		<!-- @@include('html/_popup.htm',{}) -->
-		@@include('html/_js.htm',{})
-	</body>
+        </div>
+      </section>
+    </main>
+    @@include('html/_footer.htm',{})
+  </div>
+  <!-- @@include('html/_popup.htm',{}) -->
+  @@include('html/_js.htm',{})
+</body>
+
 </html>

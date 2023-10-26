@@ -4,7 +4,7 @@ import { isMobile } from "./functions.js";
 import { flsModules } from "./modules.js";
 
 // Подключение функционала табов не забыть установить node moduls npm install --save-dev mixitup
-
+// табы главного экрана
 import mixitup from 'mixitup';
 
 var mixer = mixitup('.main-tab__wraper', {
