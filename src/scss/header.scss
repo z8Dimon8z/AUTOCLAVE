@@ -67,6 +67,10 @@
       border-radius: 0 0 50px;
       background-color: #D30000;
       color: #fff;
+      &:focus{
+      background-color: (#D30000 0,8);
+      color: #fff;
+    }
     }
   }
 
@@ -75,6 +79,7 @@
       border-radius: 0px 0px 0px 50px;
       background-color: #FFC09A;
       color: #fff;
+
     }
   }
 
