@@ -13,5 +13,17 @@ var mixer = mixitup('.main-tab__wraper', {
     }
 });
 
+
+// библиотка fansybox предварительно установить через nodemodules
+// документация https://fancyapps.com/fancybox/getting-started/
+
+import {
+  Fancybox
+} from "@fancyapps/ui";
+
+Fancybox.bind("[data-fancybox]", {
+  // Your custom options
+});
+
 // Свой код пишем здесь
 
