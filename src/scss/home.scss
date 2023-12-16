@@ -31,11 +31,13 @@
   @include adaptiveValue("padding-bottom", 68, 34);
   gap: 16px;
   justify-content: space-between;
-  @media (max-width: em(642)){
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+
+  @media (max-width: em(642)) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
+
   /* .main-content__column */
 
   &__column {}
@@ -83,8 +85,9 @@
 
   &__list {
     padding-left: 155px;
-    @media (max-width: em(642)){
-       padding-left: 28px; 
+
+    @media (max-width: em(642)) {
+      padding-left: 28px;
     }
   }
 
@@ -106,8 +109,9 @@
       top: 3px;
       left: -28px;
       background: url('@img/main-block/hit-icon.svg') 0 0 no-repeat;
-      @media (max-width: em(642)){
-        top: 0; 
+
+      @media (max-width: em(642)) {
+        top: 0;
       }
     }
 
@@ -157,8 +161,8 @@
   /* .main-content__block-link-video-icon */
 
   &__block-link-video-icon {
-    @include adaptiveValue("height",62 , 31);
-    @include adaptiveValue("width",62 , 31);
+    @include adaptiveValue("height", 62, 31);
+    @include adaptiveValue("width", 62, 31);
   }
 
   /* .main-content__block-link-pdf */
@@ -168,8 +172,8 @@
   /* .main-content__block-link-pdf-icon */
 
   &__block-link-pdf-icon {
-    @include adaptiveValue("height",62 , 31);
-    @include adaptiveValue("width",62 , 31);
+    @include adaptiveValue("height", 62, 31);
+    @include adaptiveValue("width", 62, 31);
   }
 
   &__block-wrap {
@@ -243,4 +247,161 @@
     @include adaptiveValue("height", 141, 70);
     @include adaptiveValue("width", 335, 167);
   }
+}
+
+// =====================================================================================
+.present {
+  background-color: $acentColor;
+  padding-top: 97px;
+  padding-bottom: 85px;
+  background-image: url('@img/present-block/fon.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  color: #fff;
+  @media (max-width: em(1797)){
+      padding-top: 182px;
+      padding-bottom: 320px;
+  }
+  &::after{
+    content: '';
+    position: absolute;
+    width: 210px;
+    height: 200px;
+    top: 5%;
+    right: 20%;
+    background-image: url('@img/present-block/decor-top.png');
+    background-size: cover;
+    @media (max-width: em(1797)){
+       top: 5%;
+       right: 0;
+       z-index: 1000; 
+    }
+  }
+
+   &::before{
+    content: '';
+    position: absolute;
+    width: 210px;
+    height: 200px;
+    top: 35%;
+    right: 17%;
+    background-image: url('@img/present-block/decor-buttom.png');
+    background-size: cover;
+    @media (max-width: em(1797)){
+        top: 85%;
+        right: 80%;
+    }
+  }
+  /* .present__container */
+
+  &__container {}
+
+  /* .present__box */
+
+  &__box {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    padding-left: 111px;
+    padding-right: 176px;
+    @media (max-width: em(1797)){
+       flex-direction: column;
+       align-items: center;
+       padding-left: 0;
+       padding-right: 0;
+       gap: 50px;
+
+    }
+  }
+
+  /* .present__slider */
+
+  &__slider {
+    flex-basis: 50%;
+    min-width: 0;
+    @media (max-width: em(1797)){
+        flex-basis: 100%;
+    }
+  }
+
+  /* .present__wrapper */
+
+  &__wrapper {}
+
+  /* .present__slide */
+
+  &__slide {
+    width: auto;
+
+  }
+
+  /* .present__img */
+
+  &__img {
+    width: 382px;
+    height: 382px;
+    @media (max-width: em(1797)){
+        height: 800px;
+        width: 800px;
+    }
+  }
+
+  /* .present__content */
+
+  &__content {
+    min-width: 0;
+    // flex-basis: 50%;
+  }
+
+  /* .present__title */
+
+  &__title {
+    font-family: Montserrat;
+    font-size: 60px;
+    font-weight: 800;
+    line-height: normal;
+    margin-bottom: 40px;
+  }
+
+  /* .present__text */
+
+  &__text {
+    max-width: 585px;
+    margin-bottom: 40px;
+    &:last-child{
+      margin-bottom: 0;
+    }
+    @media (max-width: em(1797)){
+        max-width: 100%;
+    }
+  }
+}
+
+.swiper {}
+
+.swiper-wrapper {}
+
+.swiper-slide {}
+
+.swiper-pagination {}
+
+// пагинация
+.present__slider .swiper-pagination {
+  margin-top: 5px;
+  position: static; 
+   @media (max-width: em(1797)){
+      text-align: left !important;
+  }
+}
+
+// булеты
+.present__slider .swiper-pagination-bullet {
+  width: 51px;
+  height: 3px;
+  border-radius: 0;
+  line-height: 20px;
+  font-size: 14px;
+  background-color: #fff;
+  color: #000;
 }
