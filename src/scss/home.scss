@@ -252,47 +252,52 @@
 // =====================================================================================
 .present {
   background-color: $acentColor;
-  padding-top: 97px;
-  padding-bottom: 85px;
+  @include adaptiveValue("padding-top", 97, 48);
+  @include adaptiveValue("padding-bottom", 85, 42);
   background-image: url('@img/present-block/fon.svg');
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
   color: #fff;
-  @media (max-width: em(1797)){
-      padding-top: 182px;
-      padding-bottom: 320px;
+
+  @media (max-width: em(1797)) {
+    @include adaptiveValue("padding-top", 182, 90);
+    @include adaptiveValue("padding-bottom", 320, 160);
   }
-  &::after{
+
+  &::after {
     content: '';
     position: absolute;
-    width: 210px;
-    height: 200px;
+    @include adaptiveValue("width", 210, 105);
+    @include adaptiveValue("height", 200, 100);
     top: 5%;
     right: 20%;
     background-image: url('@img/present-block/decor-top.png');
     background-size: cover;
-    @media (max-width: em(1797)){
-       top: 5%;
-       right: 0;
-       z-index: 1000; 
+
+    @media (max-width: em(1797)) {
+      top: 5%;
+      right: 0;
+      z-index: 1000;
     }
   }
 
-   &::before{
+  &::before {
     content: '';
     position: absolute;
-    width: 210px;
-    height: 200px;
+    @include adaptiveValue("width", 210, 105);
+    @include adaptiveValue("height", 200, 100);
     top: 35%;
     right: 17%;
     background-image: url('@img/present-block/decor-buttom.png');
     background-size: cover;
-    @media (max-width: em(1797)){
-        top: 85%;
-        right: 80%;
+
+    @media (max-width: em(1797)) {
+      top: 85%;
+      right: 80%;
     }
   }
+
   /* .present__container */
 
   &__container {}
@@ -303,14 +308,16 @@
     display: flex;
     justify-content: center;
     gap: 100px;
+    @include adaptiveValue("gap", 100, 50);
     padding-left: 111px;
     padding-right: 176px;
-    @media (max-width: em(1797)){
-       flex-direction: column;
-       align-items: center;
-       padding-left: 0;
-       padding-right: 0;
-       gap: 50px;
+
+    @media (max-width: em(1797)) {
+      flex-direction: column;
+      padding-left: 0;
+      padding-right: 0;
+      gap: 50px;
+      @include adaptiveValue("gap", 50, 25);
 
     }
   }
@@ -320,8 +327,9 @@
   &__slider {
     flex-basis: 50%;
     min-width: 0;
-    @media (max-width: em(1797)){
-        flex-basis: 100%;
+
+    @media (max-width: em(1797)) {
+      flex-basis: 100%;
     }
   }
 
@@ -341,9 +349,13 @@
   &__img {
     width: 382px;
     height: 382px;
-    @media (max-width: em(1797)){
-        height: 800px;
-        width: 800px;
+
+    @media (max-width: em(1797)) {
+      @include adaptiveValue("height", 400, 266);
+      @include adaptiveValue("width", 400, 266);
+    }
+    @media (max-width: em(425)){
+       width: 100%; 
     }
   }
 
@@ -358,22 +370,26 @@
 
   &__title {
     font-family: Montserrat;
-    font-size: 60px;
+    @include adaptiveValue("font-size", 60, 30);
     font-weight: 800;
     line-height: normal;
     margin-bottom: 40px;
+    @include adaptiveValue("margin-bottom", 40, 0);
   }
 
   /* .present__text */
 
   &__text {
     max-width: 585px;
-    margin-bottom: 40px;
-    &:last-child{
+    @include adaptiveValue("margin-bottom", 40, 20);
+    @include adaptiveValue("font-size", 18, 14);
+
+    &:last-child {
       margin-bottom: 0;
     }
-    @media (max-width: em(1797)){
-        max-width: 100%;
+
+    @media (max-width: em(1797)) {
+      max-width: 100%;
     }
   }
 }
@@ -389,9 +405,10 @@
 // пагинация
 .present__slider .swiper-pagination {
   margin-top: 5px;
-  position: static; 
-   @media (max-width: em(1797)){
-      text-align: left !important;
+  position: static;
+
+  @media (max-width: em(1797)) {
+    text-align: left !important;
   }
 }
 
@@ -405,3 +422,5 @@
   background-color: #fff;
   color: #000;
 }
+
+.present-title-mobile {}
