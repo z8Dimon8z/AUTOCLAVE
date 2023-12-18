@@ -275,8 +275,8 @@
     background-image: url('@img/present-block/decor-top.png');
     background-size: cover;
 
-    @media (max-width: em(1921)){
-       right: 0; 
+    @media (max-width: em(1921)) {
+      right: 0;
     }
 
     @media (max-width: em(1080)) {
@@ -296,8 +296,8 @@
     background-image: url('@img/present-block/decor-buttom.png');
     background-size: cover;
 
-    @media (max-width: em(1921)){
-       right: 2%; 
+    @media (max-width: em(1921)) {
+      right: 2%;
     }
 
     @media (max-width: em(1080)) {
@@ -362,8 +362,9 @@
       @include adaptiveValue("height", 400, 266);
       @include adaptiveValue("width", 400, 266);
     }
-    @media (max-width: em(425)){
-       width: 100%; 
+
+    @media (max-width: em(425)) {
+      width: 100%;
     }
   }
 
@@ -432,3 +433,126 @@
 }
 
 .present-title-mobile {}
+
+// ===============================================================================
+.products {
+
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  /* .products__container */
+
+  &__container {}
+
+  /* .products__wrapp */
+
+  &__wrapp {}
+
+  /* .products__one */
+
+  &__one {
+    margin-bottom: 100px;
+  }
+
+  /* .products__two */
+
+  &__two {}
+
+  /* .products__three */
+
+  &__three {}
+
+  /* .products__four */
+
+  &__four {}
+}
+
+.products-one-tabs {
+
+  /* .products-one-tabs__content */
+
+  &__content {
+  }
+
+  &__content_order{
+    order: 1;
+  }
+
+  /* .products-one-tabs__body */
+
+  &__body {}
+
+  &__box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+  }
+
+  /* .products-one-tabs__subtitle */
+
+  &__subtitle {
+    color: #FF6100;
+    font-size: 60px;
+    font-weight: 800;
+    line-height: normal;
+    margin-bottom: 40px;
+  }
+
+  /* .products-one-tabs__text */
+
+  &__text {
+    margin-bottom: 40px;
+    line-height: 26px; 
+    span{
+      color: #FF6100;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  /* .products-one-tabs__images */
+
+  &__images {}
+
+  /* .products-one-tabs__img */
+
+  &__img {
+    width: 730px;
+    height: 730px;
+  }
+
+  /* .products-one-tabs__navigation */
+
+  &__navigation {
+    text-align: left;
+  }
+
+  &__navigation_right{
+    text-align: right;
+  }
+
+  /* .products-one-tabs__title */
+
+  &__title {
+    padding: 5px 35px;
+    margin-right: 19px;
+    color: #FFF;
+    border-radius: 50px;
+    background-color: #BDBDBD;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 26px;
+    &:last-child{
+      margin-right: 0;
+    }
+    &._tab-active{
+      background-color:#FF6100;
+    }
+  }
+}
