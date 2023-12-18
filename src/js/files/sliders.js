@@ -20,9 +20,13 @@ EffectFade, Lazy, Manipulation
 // Базовые стили
 // import "../../scss/base/swiper.scss";
 // Полный набор стилей из scss/libs/swiper.scss
-import "../../scss/libs/swiper.scss";
+// import "../../scss/libs/swiper.scss";
 // Полный набор стилей из node_modules
-// import 'swiper/css';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
+
 
 // Инициализация слайдеров
 function initSliders() {
@@ -80,7 +84,7 @@ function initSliders() {
 			},
 
 			// Брейкпоинты
-			/*
+		/*
 			breakpoints: {
 				320: {
 					slidesPerView: 1,
@@ -96,9 +100,17 @@ function initSliders() {
 					spaceBetween: 20,
 				},
 				1268: {
-					slidesPerView: 4,
+					slidesPerView: 2,
 					spaceBetween: 30,
 				},
+        1797: {
+          slidesPerView: 3,
+					spaceBetween: 30,
+        },
+        9999: {
+          slidesPerView: 1,
+        }
+
 			},
 			*/
 			// События
