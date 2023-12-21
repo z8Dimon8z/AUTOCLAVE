@@ -511,6 +511,7 @@
   /* .products-one-tabs__text */
 
   &__text {
+    @include adaptiveValue("font-size", 18, 14);
     @include adaptiveValue("margin-bottom", 40, 20);
     @include adaptiveValue("line-height",26, 26);
     span{
