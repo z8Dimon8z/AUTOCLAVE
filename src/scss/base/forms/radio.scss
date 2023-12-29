@@ -1,59 +1,77 @@
 .options {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	// .options__item
-	&__item {
-		position: relative;
-		cursor: pointer;
-		&:not(:last-child) {
-			margin-bottom: em(5);
-		}
-	}
-	// .options__input
-	&__input {
-		width: 0;
-		height: 0;
-		opacity: 0;
-		position: absolute;
-		&:focus + .options__label:before {
-			box-shadow: 0 0 5px #000;
-		}
-		&:checked + .options__label:before {
-		}
-		&:checked + .options__label:after {
-			transform: scale(1);
-		}
-	}
-	// .options__label
-	&__label {
-		display: inline-flex;
-		align-items: center;
-		cursor: pointer;
-		gap: 10px;
-		&:before {
-			content: "";
-			align-self: flex-start;
-			width: 20px;
-			height: 20px;
-			flex: 0 0 20px;
-			border-radius: 50%;
-			border: 1px solid #a7a9ac;
-		}
-		&:after {
-			content: "";
-			transition: all 0.3s ease 0s;
-			transform: scale(0);
-			width: 10px;
-			height: 10px;
-			border-radius: 50%;
-			background-color: #77243a;
-			position: absolute;
-			left: 5px;
-			top: 5px;
-		}
-	}
-	// .options__text
-	&__text {
-	}
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 71px;
+
+  // .options__item
+  &__item {
+    position: relative;
+    cursor: pointer;
+
+    &:not(:last-child) {
+      margin-bottom: em(5);
+    }
+  }
+
+  // .options__input
+  &__input {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+
+    &:focus+.options__label:before {
+      box-shadow: 0 0 5px #000;
+    }
+
+    &:checked+.options__label:before {}
+
+    &:checked+.options__label:after {
+      transform: scale(1);
+    }
+  }
+
+  // .options__label
+  &__label {
+    display: flex;
+    align-items: center;
+    width: 200px;
+    z-index: 20;
+    cursor: pointer;
+
+    &:before {
+      content: "";
+      width: 200px;
+      height: 36px;
+      border-radius: 50px;
+      // border: 1px solid #a7a9ac;
+      background-color:#BDBDBD;
+    }
+
+    &:after {
+      content: "";
+      transition: all 0.3s ease 0s;
+      transform: scale(0);
+      z-index: 10;
+      width: 200px;
+      height: 36px;
+      border-radius: 50px;
+      background-color: #FF6100;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+    }
+  }
+
+  // .options__text
+  &__text {
+    margin-left: -86%;
+    color: #FFF;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 26px;
+    z-index: 20;
+  }
 }
