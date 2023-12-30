@@ -331,17 +331,21 @@
           <h2 class="order__title">Купить в 1 клик:</h2>
           <div class="order__box">
             <div class="order__form form">
-              <form method="post" action="" class="form">
-                <input autocomplete="off" type="text" name="form[]" data-error="Ошибка" placeholder="Имя" class="form__input">
-                <input autocomplete="off" type="tel" name="form[]" data-error="Ошибка" placeholder="Тел.:" class="form__input">
-                <input autocomplete="off" type="email" name="form[]" data-error="Ошибка" placeholder="E-mail:" class="form__input">
+              <form  action="#" class="form">
+                <input type="hidden" name="project_name" value="Заявка Avtoclav 2023">
+                <input type="hidden" name="admin_email" value="dima-lysak@yandex.ru">
+                <input type="hidden" name="form_subject" value="Form">
+
+                <input autocomplete="off" type="text" name="name" placeholder="Имя" class="form__input">
+                <input autocomplete="off" type="tel" name="tel" placeholder="Тел.:" class="form__input">
+                <input autocomplete="off" type="email" name="email" placeholder="E-mail:" class="form__input">
                   <div class="options">
                     <div class="options__item">
-                      <input hidden id="o_1" class="options__input" checked type="radio" value="1" name="option">
+                      <input hidden id="o_1" class="options__input" checked type="radio" value="Механический" name="option">
                       <label for="o_1" class="options__label"><span class="options__text">Механический</span></label>
                     </div>
                     <div class="options__item">
-                      <input hidden id="o_2" class="options__input" type="radio" value="2" name="option">
+                      <input hidden id="o_2" class="options__input" type="radio" value="Автоматический" name="option">
                       <label for="o_2" class="options__label"><span class="options__text">Автоматический</span></label>
                     </div>
                   </div>

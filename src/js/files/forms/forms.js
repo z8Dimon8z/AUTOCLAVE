@@ -179,6 +179,7 @@ export function formSubmit(options = { validate: true }) {
 					method: formMethod,
 					body: formData
 				});
+        console.log(formMethod);
 				if (response.ok) {
 					let responseResult = await response.json();
 					form.classList.remove('_sending');
@@ -219,6 +220,7 @@ export function formSubmit(options = { validate: true }) {
 		formValidate.formClean(form);
 		// Сообщаем в консоль
 		formLogging(`Форма отправлена!`);
+    
 	}
 	function formLogging(message) {
 		FLS(`[Формы]: ${message}`);
