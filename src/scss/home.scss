@@ -592,8 +592,8 @@
 .order {
 
   background-color: #F2F2F2;
-  padding-top: 91px;
-  padding-bottom: 32px;
+  @include adaptiveValue("padding-top", 91, 45);
+  @include adaptiveValue("padding-bottom", 32, 25);
 
   /* .order__container */
 
@@ -603,9 +603,12 @@
 
   &__title {
     color: #FF6100;
-    font-size: 60px;
+    @include adaptiveValue("font-size", 60, 30);
     font-weight: 800;
     line-height: normal;
+    @media (max-width: em(740)){
+        margin-bottom: 15px;
+    }
   }
 
   /* .order__box */
@@ -613,25 +616,35 @@
   &__box {
     display: flex;
     align-items: center;
+    @media (max-width: em(740)){
+      flex-direction: column;
+    }
   }
 
   /* .order__form */
 
   &__form {
     flex-basis: 60%;
+    @media (max-width: em(740)){
+      flex-basis: 100%;
+      width: 100%;  
+    }
   }
 
   /* .order__images */
 
   &__images {
     flex-basis: 20%;
+    @media (max-width: em(740)){
+       display: none; 
+    }
   }
 
   /* .order__img */
 
   &__img {
-    width: 500px;
-    height: 500px;
+    @include adaptiveValue("width", 500, 250);
+    @include adaptiveValue("height", 500, 250);
   }
 
   /* .order__content */
@@ -639,11 +652,23 @@
   &__content {
     flex-basis: 30%;
     margin-left: -10%;
+    @media (max-width: em(926)){
+       display: none; 
+    }
+    @media (max-width: em(740)){
+       display: block;
+       order: -1;
+       margin-bottom: 15px;
+       margin-left: 0;
+       flex-basis: 100%;
+    }
   }
 
   /* .order__text */
 
-  &__text {}
+  &__text {
+    @include adaptiveValue("font-size", 18, 14);
+  }
 }
 
 .form {
@@ -651,32 +676,37 @@
 
   &__input {
     display: block;
-    width: 405px;
-    margin-bottom: 18px;
-    padding-top: 11px;
-    padding-bottom: 11px;
-    padding-left: 37px;
-    padding-right: 37px;
-    border-radius: 50px;
+    @include adaptiveValue("width", 405, 202);
+    @include adaptiveValue("margin-bottom", 18, 10);
+    @include adaptiveValue("padding-top", 11, 11);
+    @include adaptiveValue("padding-bottom", 11, 11);
+    @include adaptiveValue(" padding-left", 37, 18);
+    @include adaptiveValue("padding-right", 37, 18);
+    @include adaptiveValue("border-radius", 50, 25);
     background-color: #fff;
     color: #828282;
-    font-size: 25px;
+    @include adaptiveValue("font-size", 25, 14);
     font-weight: 300;
-    line-height: 26px;
+    @include adaptiveValue("line-height", 26, 13);
+    @media (max-width: em(740)){
+        width: 100%;
+    }
   }
 
   /* .form__btn */
 
-  &__btn {
-    text-align: center;
-    width: 405px;
-    padding-top: 11px;
-    padding-bottom: 11px;
+  &__btn { 
+    @include adaptiveValue("width", 405, 202);
+    @include adaptiveValue("padding-top", 11, 11);
+    @include adaptiveValue("padding-bottom", 11, 11);
     color: #FFF;
-    font-size: 25px;
+    @include adaptiveValue("font-size", 25, 14);
     font-weight: 900;
-    line-height: 26px;
-    border-radius: 50px;
+    @include adaptiveValue("line-height", 26, 13);
+    @include adaptiveValue("border-radius", 50, 25);
     background-color: #FF6100;
+    @media (max-width: em(437)){
+        width: 100%;
+    }
   }
 }

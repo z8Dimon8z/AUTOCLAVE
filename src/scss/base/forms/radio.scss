@@ -2,7 +2,10 @@
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  margin-bottom: 71px;
+  @include adaptiveValue("margin-bottom", 71, 35);
+  @media (max-width: em(437)){
+     flex-direction: column; 
+  }
 
   // .options__item
   &__item {
