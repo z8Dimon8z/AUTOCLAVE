@@ -678,9 +678,9 @@
     display: block;
     @include adaptiveValue("width", 405, 202);
     @include adaptiveValue("margin-bottom", 18, 10);
-    @include adaptiveValue("padding-top", 11, 11);
-    @include adaptiveValue("padding-bottom", 11, 11);
-    @include adaptiveValue(" padding-left", 37, 18);
+    padding-top: 11px;
+    padding-bottom: 11px;
+    @include adaptiveValue("padding-left", 37, 18);
     @include adaptiveValue("padding-right", 37, 18);
     @include adaptiveValue("border-radius", 50, 25);
     background-color: #fff;
@@ -697,8 +697,8 @@
 
   &__btn { 
     @include adaptiveValue("width", 405, 202);
-    @include adaptiveValue("padding-top", 11, 11);
-    @include adaptiveValue("padding-bottom", 11, 11);
+    padding-top: 11px;
+    padding-bottom: 11px;
     color: #FFF;
     @include adaptiveValue("font-size", 25, 14);
     font-weight: 900;
