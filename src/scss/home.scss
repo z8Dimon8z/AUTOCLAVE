@@ -606,8 +606,9 @@
     @include adaptiveValue("font-size", 60, 30);
     font-weight: 800;
     line-height: normal;
-    @media (max-width: em(740)){
-        margin-bottom: 15px;
+
+    @media (max-width: em(740)) {
+      margin-bottom: 15px;
     }
   }
 
@@ -616,7 +617,8 @@
   &__box {
     display: flex;
     align-items: center;
-    @media (max-width: em(740)){
+
+    @media (max-width: em(740)) {
       flex-direction: column;
     }
   }
@@ -625,9 +627,10 @@
 
   &__form {
     flex-basis: 60%;
-    @media (max-width: em(740)){
+
+    @media (max-width: em(740)) {
       flex-basis: 100%;
-      width: 100%;  
+      width: 100%;
     }
   }
 
@@ -635,8 +638,9 @@
 
   &__images {
     flex-basis: 20%;
-    @media (max-width: em(740)){
-       display: none; 
+
+    @media (max-width: em(740)) {
+      display: none;
     }
   }
 
@@ -652,15 +656,17 @@
   &__content {
     flex-basis: 30%;
     margin-left: -10%;
-    @media (max-width: em(926)){
-       display: none; 
+
+    @media (max-width: em(926)) {
+      display: none;
     }
-    @media (max-width: em(740)){
-       display: block;
-       order: -1;
-       margin-bottom: 15px;
-       margin-left: 0;
-       flex-basis: 100%;
+
+    @media (max-width: em(740)) {
+      display: block;
+      order: -1;
+      margin-bottom: 15px;
+      margin-left: 0;
+      flex-basis: 100%;
     }
   }
 
@@ -668,6 +674,7 @@
 
   &__text {
     @include adaptiveValue("font-size", 18, 14);
+    line-height: normal;
   }
 }
 
@@ -688,14 +695,15 @@
     @include adaptiveValue("font-size", 25, 14);
     font-weight: 300;
     @include adaptiveValue("line-height", 26, 13);
-    @media (max-width: em(740)){
-        width: 100%;
+
+    @media (max-width: em(740)) {
+      width: 100%;
     }
   }
 
   /* .form__btn */
 
-  &__btn { 
+  &__btn {
     @include adaptiveValue("width", 405, 202);
     padding-top: 11px;
     padding-bottom: 11px;
@@ -705,8 +713,114 @@
     @include adaptiveValue("line-height", 26, 13);
     @include adaptiveValue("border-radius", 50, 25);
     background-color: #FF6100;
-    @media (max-width: em(437)){
-        width: 100%;
+
+    @media (max-width: em(437)) {
+      width: 100%;
     }
+  }
+}
+
+//==============================================================
+.jar {
+  @include adaptiveValue("padding-top", 118, 59);
+
+  /* .jar__container */
+  &__container {}
+
+  /* .jar__wraper */
+
+  &__wraper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    @media (max-width: em(740)) {
+      flex-direction: column;
+    }
+
+    // margin-bottom: 69px;
+  }
+
+  /* .jar__img */
+
+  &__img {
+    @include adaptiveValue("width", 714, 357);
+    @include adaptiveValue("height", 571, 285);
+
+  }
+
+  /* .jar__content */
+
+  &__content {}
+
+  /* .jar__title */
+
+  &__title {
+    color: #FF6100;
+    @include adaptiveValue("font-size", 60, 30);
+    font-weight: 800;
+    line-height: normal;
+    @include adaptiveValue("margin-bottom", 25, 12);
+  }
+
+  /* .jar__text */
+
+  &__text {
+    color: #4F4F4F;
+    @include adaptiveValue("font-size", 18, 14);
+    font-weight: 400;
+    line-height: 26px;
+    @include adaptiveValue("margin-bottom", 33, 16);
+  }
+
+  /* .jar__box */
+
+  &__box {
+    display: flex;
+    @include adaptiveValue("gap", 62, 30);
+
+    @media (max-width: em(1358)) {
+      margin-left: 30px;
+    }
+  }
+
+  /* .jar__images */
+
+  &__images {
+    @include adaptiveValue("width", 434, 144);
+    @include adaptiveValue("height", 216, 72);
+
+    @media (max-width: em(1358)) {
+      display: none;
+    }
+  }
+
+  /* .jar__list */
+
+  &__list {}
+
+  /* .jar__item */
+
+  &__item {
+    margin-bottom: 12px;
+    @include adaptiveValue("margin-bottom", 12, 6);
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 15px;
+      height: 15px;
+      top: 3px;
+      left: -28px;
+      background: url('@img/main-block/hit-icon.svg') 0 0 no-repeat;
+    }
+  }
+
+  /* .jar__meat-img */
+
+  &__meat-img {
+    width: 100%;
+    @include adaptiveValue("height", 1081, 360);
   }
 }
