@@ -339,7 +339,7 @@
 
 
 
-      <section class="order">
+      <section class="order" id="order">
         <div class="order__container">
           <h2 class="order__title">Купить в 1 клик:</h2>
           <div class="order__box">
@@ -401,6 +401,145 @@
             </div>
           </div>
           <img class="jar__meat-img" src="@img/jar/meat.jpeg" alt="кусок мяса">
+        </div>
+      </section>
+
+      <secton class="complete" id="complete">
+        <div class="complete__container">
+          <div class="complete__wrap">
+            <img class="complete__img" src="@img/complete/complete-avtoclav.png" alt="Картинка автоклава">
+            <div class="complete__content">
+              <h2 class="complete__title">Комплектация:</h2>
+              <ol class="complete__list">
+                <li class="complete__item">Система блокировки Heavy-Block</li>
+                <li class="complete__item">Автоклав</li>
+                <li class="complete__item">Внутренний модуль</li>
+                <li class="complete__item">Кассета / фальшдно</li>
+                <li class="complete__item">Воздушный клапан сброса давления</li>
+                <li class="complete__item">Электронный термометр</li>
+                <li class="complete__item">Термостойкая ручка</li>
+                <li class="complete__item">Манометр</li>
+                <li class="complete__item">Воздушный клапан сброса давления</li>
+                <li class="complete__item">Барашки для фиксации</li>
+                <li class="complete__item">Капсульное дно</li>
+                <li class="complete__item">ТЭН</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </secton>
+
+      <section class="installment" id="installment">
+        <div class="installment__container">
+          <div class="installment__box">
+            <h2 class="installment__title">Рассрочка<br><span>без переплат</span></h2>
+            <p class="installment__description"><span>0</span>р.<span>0</span>р.<span>6</span>мес.
+            </p>
+            <img class="installment__img" src="@img/logo-tincoff.png" alt="Логотип банка тинькоф">
+          </div>
+          <form class="installment__form" action="#">
+            <input type="hidden" name="project_name" value="Заявка Avtoclav 2023">
+            <input type="hidden" name="admin_email" value="dima-lysak@yandex.ru">
+            <input type="hidden" name="form_subject" value="Рассрочка">
+            <input class="installment__input" type="text" placeholder="Имя" name="name">
+            <input class="installment__input" type="text" placeholder="Телефон" name="tel">
+            <button class="installment__btn" button="submit">ОФОРМИТЬ</button>
+          </form>
+          <div class="installment__content">
+            <p class="installment__appeal">оставьте<br>заявку</p>
+            <p class="installment__text">Наш сотрудник в ближайшее время свяжется с вами для подтверждения заказа. И
+              проконсультирует по всем условиям рассрочки или кредита.</p>
+            <p class="installment__price">Всего от 446 р/мес</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="recipe">
+        <div class="recipe__container">
+          <h2 class="recipe__title">Готовить просто!</h2>
+          <div class="recipe__box">
+            <img class="recipe__img" src="@img/recipe/algorithm-works.png"
+              alt="картинка последовательности деятельности при работе с автоклавом">
+          </div>
+        </div>
+      </section>
+
+      <section class="video" id="video">
+        <div class="video__container">
+          <h2 class="video__title">Видеообзоры:</h2>
+          <!-- Оболочка слайдера -->
+          <div class="video__slider swiper">
+            <!-- Двигающееся часть слайдера -->
+            <div class="video__wrapper swiper-wrapper">
+              <!-- Слайд -->
+              <div class="video__slide swiper-slide">
+                <a class="video-item" href="files/video.mp4" data-fancybox data-width="640" data-height="360"
+                  style="background-image: url('@img/video/video-bg.png');">
+                </a>
+              </div>
+
+              <div class="video__slide swiper-slide">
+                <a class="video-item" href="files/video.mp4" data-fancybox data-width="640" data-height="360"
+                  style="background-image: url('@img/video/video-bg-2.png');">
+                </a>
+              </div>
+
+              <div class="video__slide swiper-slide">
+                <a class="video-item" href="files/video.mp4" data-fancybox data-width="640" data-height="360"
+                  style="background-image: url('@img/video/video-bg-3.png');">
+                </a>
+              </div>
+
+              <div class="video__slide swiper-slide">
+                <a class="video-item" href="files/video.mp4" data-fancybox data-width="640" data-height="360"
+                  style="background-image: url('@img/video/video-bg.png');">
+                </a>
+              </div>
+            </div>
+            <!-- Если нужна пагинация -->
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="delivery">
+        <div class="delivery__container">
+          <h2 class="delivery__title">Бесплатная доставка по России!</h2>
+          <div class="delivery__wrapp">
+            <div class="delivery__content">
+              <div class="delivery__box">
+                <div class="delivery__box-one">
+                  <p class="delivery__text-tile">
+                    Москва и МО от 1-3 дней
+                  </p>
+                  <p class="delivery__description">бесплатная доставка собственной курьерской службой!</p>
+                </div>
+                <div class="delivery__box-two">
+                  <p class="delivery__text-tile">
+                    По России от 3-5 дней
+                  </p>
+                  <p class="delivery__description">бесплатная доставка СДЭК или ПОЧТА РОССИИ!</p>
+                </div>
+              </div>
+              <p class="delivery__text">Оплата после получения.<br>
+                Можно вскрыть упаковку и проверить товар.</p>
+              <div class="delivery__connection">
+                <p class="delivery__connection-text">По любым вопросам <br> обращаться по телефону</p>
+                <p class="delivery__connection-tel">+7 (800) 600-45-96</p>
+              </div>
+            </div>
+            <img class="delivery__img" src="@img/avtoklav.png" alt="картинка автоклава">
+          </div>
+          <div class="delivery__form-wrapp">
+            <p class="delivery__form-text">Закажите обратный звонок, и мы свяжемся с вами в ближайшее время!</p>
+            <form class="delivery__form" action="#">
+              <input type="hidden" name="project_name" value="Заявка Avtoclav 2023">
+              <input type="hidden" name="admin_email" value="dima-lysak@yandex.ru">
+              <input type="hidden" name="form_subject" value="Форма вторая заказ">
+              <input class="delivery__form-input" type="text" placeholder="Тел.:" name="tel">
+              <button class="delivery__form-btn" button="submit">Заказать звонок</button>
+            </form>
+          </div>
         </div>
       </section>
 

@@ -45,3 +45,37 @@ Fancybox.bind("[data-fancybox]", {
 		});
 		return false;
 	});
+
+      //E-mail Ajax Send
+	$(".installment__form").submit(function() { //Change
+		var th = $(this);
+		$.ajax({
+			type: "POST",
+			url: "./files/mail.php", //Change
+			data: th.serialize()
+		}).done(function() {
+			alert("Thank you!");
+			setTimeout(function() {
+				// Done Functions
+				th.trigger("reset");
+			}, 1000);
+		});
+		return false;
+	});
+
+     //E-mail Ajax Send
+	$(".delivery__form").submit(function() { //Change
+		var th = $(this);
+		$.ajax({
+			type: "POST",
+			url: "./files/mail.php", //Change
+			data: th.serialize()
+		}).done(function() {
+			alert("Thank you!");
+			setTimeout(function() {
+				// Done Functions
+				th.trigger("reset");
+			}, 1000);
+		});
+		return false;
+	});

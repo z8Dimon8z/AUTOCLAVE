@@ -119,6 +119,90 @@ function initSliders() {
 			}
 		});
 	}
+
+  if (document.querySelector('.video__slider')) { // Указываем скласс нужного слайдера
+		// Создаем слайдер
+		new Swiper('.video__slider', { // Указываем скласс нужного слайдера
+			// Подключаем модули слайдера
+			// для конкретного случая
+			modules: [Navigation, Pagination, Autoplay],
+			observer: true,
+			observeParents: true,
+			slidesPerView: 1.8,
+			spaceBetween: 20,
+			autoHeight: true,
+			speed: 800,
+
+			//touchRatio: 0,
+			//simulateTouch: false,
+			//loop: true,
+			//preloadImages: false,
+			//lazy: true,
+
+			
+			// Эффекты
+			effect: 'fade',
+			autoplay: {
+				delay: 3000,
+				disableOnInteraction: false,
+			},
+			
+
+			// Пагинация
+			
+			pagination: {
+				el: '.swiper-pagination',
+				clickable: true,
+			},
+			
+
+			// Скроллбар
+			/*
+			scrollbar: {
+				el: '.swiper-scrollbar',
+				draggable: true,
+			},
+			*/
+
+			// Кнопки "влево/вправо"
+			navigation: {
+				prevEl: '.swiper-button-prev',
+				nextEl: '.swiper-button-next',
+			},
+
+			// Брейкпоинты
+		
+			breakpoints: {
+				320: {
+					slidesPerView: 0.8,
+					spaceBetween: 0,
+					autoHeight: true,
+				},
+				726: {
+					slidesPerView: 1.5,
+					spaceBetween: 10,
+				},
+				992: {
+					slidesPerView: 1.5,
+					spaceBetween: 20,
+				},
+				1118: {
+					slidesPerView: 1.8,
+					spaceBetween: 20,
+				},
+        1797: {
+          slidesPerView: 1.8,
+					spaceBetween: 20,
+        },
+
+			},
+			
+			// События
+			on: {
+
+			}
+		});
+	}
 }
 // Скролл на базе слайдера (по классу swiper_scroll для оболочки слайдера)
 function initSlidersScroll() {

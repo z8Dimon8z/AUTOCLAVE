@@ -1,3 +1,69 @@
 //====================================================================================================
+.footer {
+
+  /* .footer__container */
+
+  background-image: url('@img/footer-bg.png');
+  height: 1085px;
+  padding-top: 900px;
+  position: relative;
+  z-index: -1;
+  @media (max-width: em(1024)){
+      height: 100px;
+      padding-bottom: 100px;
+      margin-top: -200px;
+  }
+
+  &__container {}
+
+  /* .footer__wpapp */
+
+  &__wpapp {
+    display: flex;
+    @include adaptiveValue("gap", 66, 33);
+    align-items: center;
+    justify-content: space-around;
+    color: #FFF;
+  }
+
+  /* .footer__copyright */
+
+  &__copyright {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 23px;
+    text-align: left;
+    text-transform: uppercase;
+    @media (max-width: em(1162)){
+        display: none;
+    }
+  }
+
+  /* .footer__link */
+
+  &__link {
+    text-decoration: underline !important;
+    @include adaptiveValue("font-size", 18, 14);
+    font-weight: 600;
+    line-height: 23px;
+    text-align: left;
+    text-transform: uppercase;
+  }
+
+
+  /* .footer__tel */
+
+  &__tel {
+    font-size: 31.55px;
+    @include adaptiveValue("font-size", 31, 18);
+    font-weight: 600;
+    line-height: 38px;
+    text-align: left;
+    text-transform: uppercase;
+    @media (max-width: em(1162)){
+        display: none;
+    }
+  }
+}
 
 //====================================================================================================

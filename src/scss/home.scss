@@ -282,7 +282,7 @@
     @media (max-width: em(1080)) {
       top: 5%;
       right: 0;
-      z-index: 1000;
+      z-index: 4;
     }
   }
 
@@ -822,5 +822,669 @@
   &__meat-img {
     width: 100%;
     @include adaptiveValue("height", 1081, 360);
+  }
+}
+
+// =================================================
+.complete {
+
+  /* .complete__container */
+  &__container {}
+
+  /* .complete__wrap */
+
+  &__wrap {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    @include adaptiveValue("gap", 35, 17);
+
+    @media (max-width: em(740)) {
+      flex-direction: column;
+    }
+  }
+
+  /* .complete__img */
+
+  &__img {
+    width: 675px;
+    @include adaptiveValue("width", 675, 225);
+    height: 574px;
+    @include adaptiveValue("height", 574, 191);
+  }
+
+  /* .complete__content */
+
+  &__content {
+    @media (max-width: em(740)) {
+      order: -1;
+    }
+  }
+
+  /* .complete__title */
+
+  &__title {
+    color: rgb(255, 97, 0);
+    font-size: 60px;
+    @include adaptiveValue("font-size", 60, 21);
+    font-weight: 800;
+    line-height: 73px;
+    @include adaptiveValue("line-height", 73, 36);
+    letter-spacing: 0%;
+    text-align: left;
+    margin-bottom: 28px;
+    @include adaptiveValue("margin-bottom", 28, 10);
+    margin-left: -25px;
+
+    @media (max-width: em(740)) {
+      margin-left: 0;
+    }
+  }
+
+  /* .complete__list */
+
+  &__list {
+    counter-reset: count;
+  }
+
+  /* .complete__item */
+
+  &__item {
+    color: rgb(79, 79, 79);
+    font-family: Montserrat;
+    font-size: 18px;
+    @include adaptiveValue("font-size", 18, 13);
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0%;
+    text-align: left;
+    margin-bottom: 11px;
+    transition: all 0.5s;
+    list-style-type: none;
+    position: relative;
+
+    &:hover {
+      color: rgb(255, 97, 0);
+    }
+
+    &:before {
+      counter-increment: count;
+      content: counter(count)" ";
+      margin-right: 0.5em;
+      display: inline-block;
+      padding: 0 10px;
+      border-radius: 50%;
+      color: #fff;
+      background-color: rgb(130, 130, 130);
+    }
+  }
+}
+
+// =================================================
+.installment {
+
+  /* .installment__container */
+  @include adaptiveValue("margin-top", 125, 62);
+  @include adaptiveValue("padding-top", 113, 56);
+  @include adaptiveValue("padding-bottom", 113, 56);
+  background-color: rgb(255, 97, 0);
+
+  &__container {}
+
+  /* .installment__box */
+
+  &__box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include adaptiveValue("margin-bottom", 31, 15);
+    gap: 10px;
+    flex-wrap: wrap;
+
+  }
+
+  /* .installment__title */
+
+  &__title {
+    color: rgb(255, 255, 255);
+    @include adaptiveValue("font-size", 55, 27);
+    font-weight: 800;
+    text-align: left;
+    text-transform: uppercase;
+
+    span {
+      @include adaptiveValue("font-size", 34, 17);
+      text-align: left;
+    }
+  }
+
+  /* .installment__description */
+
+  &__description {
+    color: rgb(255, 255, 255);
+    padding: 24px 35px;
+    @include adaptiveValue("padding-top", 24, 12);
+    @include adaptiveValue("padding-bottom", 24, 12);
+    @include adaptiveValue("padding-left", 35, 17);
+    @include adaptiveValue("padding-right", 35, 17);
+    @include adaptiveValue("font-size", 27, 13.5);
+    font-weight: 400;
+    letter-spacing: 0%;
+    text-align: left;
+    text-transform: uppercase;
+    border-radius: 15px;
+    background-color: rgb(189, 189, 189);
+
+    span {
+      font-size: 129.73px;
+      @include adaptiveValue("font-size", 129, 64);
+      font-weight: 800;
+    }
+  }
+
+  /* .installment__img */
+
+  &__img {
+    @media (max-width: em(786)) {
+      display: none;
+    }
+  }
+
+  /* .installment__form */
+
+  &__form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    @include adaptiveValue("gap", 34, 17);
+    @include adaptiveValue("padding-top", 38, 19);
+    @include adaptiveValue("padding-bottom", 38, 19);
+    @include adaptiveValue("padding-left", 38, 19);
+    @include adaptiveValue("padding-right", 38, 19);
+    @include adaptiveValue("font-size", 27, 13.5);
+    border-radius: 15px;
+    background-color: rgb(189, 189, 189);
+    @include adaptiveValue("margin-bottom", 28, 14);
+
+    @media (max-width: em(742)) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* .installment__input */
+
+  &__input {
+    border-radius: 5px;
+    padding: 13px;
+    background-color: rgb(255, 255, 255);
+    font-size: 14px;
+
+    &::placeholder {
+      color: rgb(189, 189, 189);
+      font-size: 14px;
+      font-weight: 800;
+      text-align: left;
+    }
+  }
+
+  /* .installment__btn */
+
+  &__btn {
+    border-radius: 5px;
+    padding: 10px 17px;
+    background-color: rgb(64, 175, 95);
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 20px;
+    text-transform: uppercase;
+  }
+
+  /* .installment__content */
+
+  &__content {
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    gap: 10px;
+
+    @media (max-width: em(874)) {
+      flex-direction: column;
+    }
+  }
+
+  /* .installment__appeal */
+
+  &__appeal {
+    color: rgb(255, 255, 255);
+    @include adaptiveValue("font-size", 40, 20);
+    font-weight: 800;
+    text-align: left;
+    text-transform: uppercase;
+
+    @media (max-width: em(874)) {
+      order: 1;
+    }
+  }
+
+  /* .installment__text */
+
+  &__text {
+    color: rgb(255, 255, 255);
+    max-width: 470px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    letter-spacing: 0%;
+    text-align: left;
+
+    @media (max-width: em(874)) {
+      order: 3;
+    }
+  }
+
+  /* .installment__price */
+
+  &__price {
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 20px;
+    letter-spacing: 0%;
+    text-align: left;
+
+    @media (max-width: em(874)) {
+      order: 2;
+    }
+  }
+}
+
+// ===================================
+.recipe {
+
+  /* .recipe__container */
+  @include adaptiveValue("padding-top", 115, 57);
+  @include adaptiveValue("padding-bottom", 200, 100);
+
+  @media (max-width: em(760)) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  &__container {}
+
+  /* .recipe__title */
+
+  &__title {
+    color: rgb(255, 97, 0);
+    @include adaptiveValue("font-size", 60, 30);
+    font-weight: 800;
+    text-align: center;
+  }
+
+  /* .recipe__box */
+
+  &__box {
+    position: relative;
+    display: block;
+
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      background-image: url('@img/recipe/jam.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      right: 50%;
+      bottom: 50%;
+      transform: translate(200%, 48%);
+      width: 481px;
+      height: 344px;
+
+      @media (max-width: em(1342)) {
+        bottom: 100%;
+        right: 40%;
+        width: 240px;
+        height: 172px;
+      }
+
+      @media (max-width: em(500)) {
+        display: none;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      background-image: url('@img/recipe/pickle.png');
+      background-repeat: no-repeat;
+      background-size: cover;
+      left: 50%;
+      bottom: 50%;
+      transform: translate(-198%, 48%);
+      width: 481px;
+      height: 430px;
+
+      @media (max-width: em(1342)) {
+        bottom: 0%;
+        transform: translate(-250%, 70%);
+        width: 240px;
+        height: 215px;
+      }
+
+      @media (max-width: em(500)) {
+        display: none;
+      }
+    }
+  }
+
+  /* .recipe__img */
+
+  &__img {
+    @include adaptiveValue("width", 1250, 312);
+    @include adaptiveValue("height", 738, 184);
+  }
+}
+
+// ===============================
+.video {
+  @include adaptiveValue("padding-bottom", 50, 25);
+}
+
+.video__title {
+  color: rgb(255, 97, 0);
+  @include adaptiveValue("font-size", 60, 30);
+  font-weight: 800;
+  text-align: left;
+  @include adaptiveValue("margin-bottom", 31, 15);
+}
+
+.video-item {
+  display: flex;
+  position: relative;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: #181644;
+  @include adaptiveValue("width", 675, 337);
+  @include adaptiveValue("height", 448, 224);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  transition-property: box-shadow, width, height;
+  transition-duration: 0.5s;
+}
+
+.video-item::after {
+  content: '';
+  position: absolute;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.3);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  transition-property: box-shadow, width, height;
+  transition-duration: 0.5s;
+}
+
+.video-item::before {
+  content: '';
+  position: absolute;
+  width: 43px;
+  height: 50px;
+  top: 50%;
+  left: 50%;
+  background-image: url('@img/play.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  transform: translate(-50%, -50%);
+  transition-property: box-shadow, width, height;
+  transition-duration: 0.5s;
+  z-index: 10;
+}
+
+.video-item:hover {
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+}
+
+.video-item:active {
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.2);
+}
+
+.video-item:hover::before {
+  width: 65px;
+  height: 75px;
+}
+
+.video-item:active::before {
+  width: 52px;
+  height: 60px;
+}
+
+// пагинация
+.video__slider .swiper-pagination {
+  margin-top: 5px;
+  position: static;
+
+  @media (max-width: em(1797)) {
+    text-align: center !important;
+  }
+}
+
+// булеты
+.video__slider .swiper-pagination-bullet {
+  width: 51px;
+  height: 3px;
+  border-radius: 0;
+  line-height: 20px;
+  font-size: 14px;
+  background-color: #FF6100;
+  color: #FF6100;
+}
+
+// ============================
+.delivery {
+  /* .delivery__container */
+
+  &__container {}
+
+  /* .delivery__title */
+
+  &__title {
+    color: rgb(255, 97, 0);
+    @include adaptiveValue("font-size", 60, 30);
+    font-weight: 800;
+    text-align: center;
+    @include adaptiveValue("margin-bottom", 25, 12);
+  }
+
+  /* .delivery__wrapp */
+
+  &__wrapp {
+    display: flex;
+  }
+
+  /* .delivery__content */
+
+  &__content {}
+
+  /* .delivery__box */
+
+  &__box {
+    display: flex;
+    @include adaptiveValue("gap", 31, 15);
+    @include adaptiveValue("margin-bottom", 25, 12);
+  }
+
+  /* .delivery__box-one */
+
+  &__box-one {
+    @include adaptiveValue("padding-top", 25, 12);
+    @include adaptiveValue("padding-bottom", 25, 12);
+    @include adaptiveValue("padding-left", 44, 22);
+    @include adaptiveValue("padding-right", 44, 22);
+    background-color: rgb(242, 242, 242);
+  }
+
+  /* .delivery__text-tile */
+
+  &__text-tile {
+    color: rgb(79, 79, 79);
+    font-size: 24px;
+    @include adaptiveValue("font-size", 24, 14);
+    font-weight: 900;
+    text-align: center;
+    @include adaptiveValue("margin-bottom", 25, 10);
+  }
+
+  /* .delivery__description */
+
+  &__description {
+    color: rgb(79, 79, 79);
+    font-size: 18px;
+    @include adaptiveValue("font-size", 18, 12);
+    font-weight: 400;
+    text-align: center;
+  }
+
+  /* .delivery__box-two */
+
+  &__box-two {
+    @include adaptiveValue("padding-top", 25, 12);
+    @include adaptiveValue("padding-bottom", 25, 12);
+    @include adaptiveValue("padding-left", 44, 22);
+    @include adaptiveValue("padding-right", 44, 22);
+    background-color: rgb(242, 242, 242);
+  }
+
+  /* .delivery__text */
+
+  &__text {
+    color: rgb(79, 79, 79);
+    font-size: 18px;
+    @include adaptiveValue("font-size", 18, 12);
+    font-weight: 400;
+    text-align: left;
+    @include adaptiveValue("margin-bottom", 25, 10);
+  }
+
+  /* .delivery__connection */
+
+  &__connection {
+    display: flex;
+    align-items: center;
+    background-color: rgb(255, 97, 0);
+    color: #fff;
+    @include adaptiveValue("padding-top", 27, 13);
+    @include adaptiveValue("padding-bottom", 27, 13);
+    @include adaptiveValue("padding-left", 50, 25);
+    @include adaptiveValue("padding-right", 50, 25);
+    @include adaptiveValue("gap", 84, 10);
+    @media (max-width: em(1264)){
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+  }
+
+  /* .delivery__connection-text */
+
+  &__connection-text {
+    font-size: 20px;
+    @include adaptiveValue("font-size", 25, 12);
+    font-weight: 800;
+    text-align: left;
+    @media (max-width: em(1264)){
+       text-align: center; 
+    }
+  }
+
+  /* .delivery__connection-tel */
+
+  &__connection-tel {
+    font-size: 31.4px;
+    @include adaptiveValue("font-size", 31, 15);
+    font-weight: 800;
+    text-align: right;
+  }
+
+  /* .delivery__img */
+
+  &__img {
+    margin-top: -110px;
+   
+    @media (max-width: em(854)){
+       display: none; 
+    }
+  }
+
+  /* .delivery__form-wrapp */
+
+  &__form-wrapp {
+    display: flex;
+    @include adaptiveValue("gap", 106, 10);
+    margin-top: -130px;
+    @media (max-width: em(854)){
+       margin-top: 15px; 
+    }
+    @media (max-width: em(380)){
+       flex-direction: column; 
+    }
+  }
+
+  /* .delivery__form-text */
+
+  &__form-text {
+    @include adaptiveValue("max-width", 267, 133);
+    @include adaptiveValue("font-size", 18, 15);
+    @media (max-width: em(380)){
+       max-width: 100%; 
+    }
+  }
+
+  /* .delivery__form */
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* .delivery__form-input */
+
+  &__form-input {
+    padding: 11px 37px;
+    @include adaptiveValue("padding-top", 11, 10);
+    @include adaptiveValue("padding-bottom", 11, 10);
+    @include adaptiveValue("padding-left", 37, 18);
+    @include adaptiveValue("padding-right", 37, 18);
+    border-radius: 50px;
+    background-color: rgb(242, 242, 242);
+    @include adaptiveValue("font-size", 25, 12);
+    @include adaptiveValue("margin-bottom", 27, 13);
+
+    &::placeholder {
+      color: rgb(130, 130, 130);
+      @include adaptiveValue("font-size", 25, 12);
+      font-weight: 300;
+      text-align: left;
+    }
+  }
+
+  /* .delivery__form-btn */
+
+  &__form-btn {
+    color: rgb(255, 255, 255);
+    @include adaptiveValue("padding-top", 11, 5);
+    @include adaptiveValue("padding-bottom", 11, 5);
+    @include adaptiveValue("padding-left", 78, 39);
+    @include adaptiveValue("padding-right", 78, 39);
+    border-radius: 30px;
+    background-color: rgb(255, 97, 0);
+    @include adaptiveValue("font-size", 25, 12);
+    font-weight: 900;
+    line-height: 26px;
+    text-align: center;
   }
 }
